@@ -8,10 +8,15 @@ public record Money(int value) implements Comparable<Money> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Money(int otherValue))) return false;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof Money(int otherValue))) return false;
         return value == otherValue;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(value);
     }
 
     @Override
